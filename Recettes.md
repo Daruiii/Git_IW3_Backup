@@ -9,9 +9,10 @@ Voici quelques recettes pour nos plats fictifs du restaurant.
 - 2 tranches de cheddar affiné
 - Oignons caramélisés
 - Sauce secrète
+- La sauce spéciale du chef
 
 ### Préparation :
-1. Faire cuire le steak à la cuisson désirée.
+1. Faire cuire le steak à la cuisson désirée (température de 55°C pour une cuisson saignante).
 2. Toaster légèrement le pain burger.
 3. Ajouter le cheddar sur le steak encore chaud.
 4. Assembler le burger avec les oignons et la sauce secrète.
