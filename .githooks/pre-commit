@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "🔍 Vérification du code avant commit..."
+
+# Vérification du formatage avec Prettier (utile pour du JS, HTML, CSS)
+if command -v prettier &> /dev/null
+then
+    echo "Vérification avec Prettier..."
+    prettier --check $(git diff --cached --name-only --diff-filter=d | grep -E '\.(js|css|html)$' || echo "skip")
+    if [ $? -ne 0 ]; then
+        echo "Erreur : Code mal formaté, corrigez avec 'prettier --write'."
+        exit 1
+    fi
+fi
+
+# Vérification Python avec Black
+if command -v black &> /dev/null
+then
+    echo "Vérification avec Black..."
+    black --check .
+    if [ $? -ne 0 ]; then
+        echo "Erreur : Code Python mal formaté, corrigez avec 'black .'"
+        exit 1
+    fi
+fi
+
+echo "Code validé ! Commit autorisé."
+exit 0
