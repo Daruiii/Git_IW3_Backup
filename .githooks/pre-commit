@@ -6,7 +6,11 @@ echo "🔍 Vérification du code avant commit..."
 if command -v prettier &> /dev/null
 then
     echo "Vérification avec Prettier..."
-    prettier --check $(git diff --cached --name-only --diff-filter=d | grep -E '\.(js|css|html)$' || echo "skip")
+    FILES=$(git diff --cached --name-only --diff-filter=d | grep -E '\.(js|css|html)$' || true)
+if [ -n "$FILES" ]; then
+    prettier --check $FILES
+fi
+
     if [ $? -ne 0 ]; then
         echo "Erreur : Code mal formaté, corrigez avec 'prettier --write'."
         exit 1
